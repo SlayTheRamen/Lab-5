@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Jack
- * Date: 2/15/2018
- * Time: 3:37 PM
- */
+class Tasks extends CSV_Model {
+
+    public function __construct()
+    {
+        parent::__construct(APPPATH . '../data/tasks.csv', 'id');
+    }
+
+}
