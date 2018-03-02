@@ -22,7 +22,11 @@ class Mtce extends Application {
         {
             if (!empty($task->status))
                 $task->status = $this->app->status($task->status);
-            $result .= $this->parser->parse('oneitem', (array) $task, true);
+            // INSERT the next three lines. The fourth is already there
+            if ($role == ROLE_OWNER)
+                $result .= $this->parser->parse('oneitemx', (array) $task, true);
+            else
+                $result .= $this->parser->parse('oneitem', (array) $task, true);
         }
         $this->data['display_tasks'] = $result;
 
@@ -48,6 +52,7 @@ class Mtce extends Application {
             }
             if ($count >= $this->items_per_page) break;
         }
+        $this->data['pagination'] = $this->pagenav($num);
         // INSERT next three lines
         $role = $this->session->userdata('userrole');
         if ($role == ROLE_OWNER) 
@@ -65,5 +70,10 @@ class Mtce extends Application {
             'last' => $lastpage
         );
         return $this->parser->parse('itemnav',$parms,true);
+    }
+
+    function edit()
+    {
+
     }
 }
