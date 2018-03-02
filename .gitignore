@@ -20,3 +20,5 @@ application/logs/*
 
 #phpstorm
 /.idea/*
+
+/tmp
