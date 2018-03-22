@@ -1,1 +1,3 @@
-<a href="/mtce/add"><input type="button" value="Add a new todo item"/></a>
+<a href="/mtce/add">
+	<button type="button">Update the TODO task</button>
+</a>
